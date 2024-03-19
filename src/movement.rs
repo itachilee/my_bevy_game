@@ -12,10 +12,8 @@ impl Plugin for MovementPlugin {
     }
 }
 
-fn update_spaceship(mut query: Query<(&Velocity, &mut Transform)>) {
-    for (velocity, mut position) in query.iter_mut() {
-        position.translation.x += velocity.value.x;
-        position.translation.y += velocity.value.y;
-        position.translation.z += velocity.value.z;
+fn update_spaceship(mut query: Query<(&Velocity, &mut Transform)>, time: Res<Time>) {
+    for (velocity, mut transform) in query.iter_mut() {
+        transform.translation += velocity.value * time.delta_seconds();
     }
 }
