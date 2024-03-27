@@ -1,5 +1,9 @@
+mod asset_loader;
+mod asteroids;
 mod camera;
+mod collision_detection;
 mod debug;
+mod despawn;
 mod movement;
 mod spaceship;
 
